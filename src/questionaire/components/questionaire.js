@@ -1438,13 +1438,13 @@ export default class extends Component {
       return "https://scontent-sea1-1.xx.fbcdn.net/v/t31.0-8/13920488_891980817573663_409022022472900538_o.jpg?_nc_cat=0&oh=3c8d78c0ff00a2fa0aad79c459282b78&oe=5BB18DB7"
     }
     if (progress >= 20 && progress < 40 ) {
-      return 'https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/13166018_848453818593030_5637020492663152058_n.png?_nc_cat=0&oh=68fbf3a56445f6bb7d1977b8b731dd10&oe=5BAF4E12'
+      return 'https://scontent-sea1-1.xx.fbcdn.net/v/t31.0-8/18620838_1161660327272376_9085363767817303550_o.jpg?_nc_cat=0&oh=c9a7cc7d44d0ec29e9ce366f26743756&oe=5BA43740'
     }
     if (progress >= 40 && progress < 60 ) {
       return 'https://scontent-sea1-1.xx.fbcdn.net/v/t31.0-8/11144940_829297497175329_5926370979536051212_o.jpg?_nc_cat=0&oh=63b95ab31f720ad9bb6c87e9a4c63cd2&oe=5BA9F374'
     }
     if (progress >= 60 && progress < 80 ) {
-      return 'https://scontent-sea1-1.xx.fbcdn.net/v/t31.0-8/18620838_1161660327272376_9085363767817303550_o.jpg?_nc_cat=0&oh=c9a7cc7d44d0ec29e9ce366f26743756&oe=5BA43740'
+      return 'https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/13166018_848453818593030_5637020492663152058_n.png?_nc_cat=0&oh=68fbf3a56445f6bb7d1977b8b731dd10&oe=5BAF4E12'
     }
     if (progress >= 80) {
       return 'https://scontent-sea1-1.xx.fbcdn.net/v/t31.0-8/13920488_891980817573663_409022022472900538_o.jpg?_nc_cat=0&oh=3c8d78c0ff00a2fa0aad79c459282b78&oe=5BB18DB7'
