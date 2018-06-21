@@ -81,17 +81,16 @@ export default class extends Component {
           order: '5'
         },
         {
-          beginText: 'PANT SIZE ',  
-          questionKey: 'sizePants',
-          input:  <div> 
-                    <div>I WEAR A </div>
-                    <div>
-                      <Input size="large" onChange={(e) => this.answerQuestion(e.target.value)} placeholder="12" style={{border: '0px', borderBottom: '1px solid black', fontSize: '20px', fontWeight: '800'}} className="buttonTest"/>,
-                    </div>
-                    <div style={{display: 'inline-block'}}> IN PANTS</div>
+          beginText: 'The fun stuff!',  
+          questionKey: 'fashionConsultantComfort-a',
+          input:  <div style={{margin: '20px 0px'}}>
+                    <p>Awesome. Thanks for sharing all that information. Let's move onto the fun stuff now...</p>
                   </div>,
           answer: '',
-          order: '6'
+          autoStep: true,
+          delay: 3000,
+          callback: this.navigateScene.bind(this),
+          order: '6.0'
         },
         {
           beginText: 'HOW DO YOU FEEL ABOUT A FASHION CONSULTANT SELECTING A SWIMSUIT FOR YOU?',  
@@ -208,7 +207,7 @@ export default class extends Component {
           beginText: 'I understand being nervous but let me help',  
           questionKey: 'fashionConsultantComfort-abcd',
           input:  <div style={{margin: '20px 0px'}}>
-                    <p>I understand being nervous but let me help you to relax a bit. We are going to learn as much as we can about your needs to make sure you get a swimsuit you love delivered to you. But, on the off chance it doesn’t work out, you can easily return it no problem!  Ready to keep going?</p>
+                    <p>I understand being nervous but let me help you to relax a bit. We are going to learn as much as we can about your needs to make sure you get a swimsuit you love delivered to you. But, on the off chance it doesn’t work out, you can easily return it no problem!</p>
                     <p>Ready to keep going?</p>
                     <Select
                       size={'large'}
@@ -250,6 +249,10 @@ export default class extends Component {
           questionKey: 'fashionConsultantComfort-abc',
           input:  <div style={{margin: '20px 0px'}}>
                     <p>Let me tell you a little bit about our company and why we started...</p>
+                    <div><a>Click Here to View Testimonials</a></div>
+                    <div><a>Click here to start a Live Chat With Your Stylist</a></div>
+                     
+
                   </div>,
           answer: '',
           order: '7.4.2'
@@ -738,8 +741,6 @@ export default class extends Component {
                       <Option value="MY BUTT">MY BUTT</Option>
                       <Option value="MY MID SECTION">MY MID SECTION</Option>
                       <Option value="MY THIGHS">MY THIGHS</Option>
-                      <Option value="MY ARMS">MY ARMS</Option>
-                      <Option value="IT IS SOMETHING ELSE">IT IS SOMETHING ELSE</Option>
                     </Select>
                   </div>,
           triggers: [
@@ -1079,6 +1080,50 @@ export default class extends Component {
                   </div>,
           endText: '.',
           answer: '',
+          order: '10.2.3'
+        },
+        {
+          beginText: 'Do you want to cover your midsection completely?',
+          questionKey: '',
+          input:  <div>
+                    <p>Do you want to cover your midsection completely?</p>
+                    <Select
+                      size={'large'}
+                      onChange={(e) => this.answerQuestion(e)}
+                      style={{ width: 300 }}
+                      placeholder={'Select An Answer'}
+                    >
+                      <Option value='No, I want to wear a two piece'>No, I want to wear a two piece</Option>
+                      <Option value="Yes, I would like a one piece">Yes, I would like a one piece</Option>
+                    </Select>
+                  </div>,
+          triggers: [
+            {
+              value: 'No, I want to wear a two piece',
+              to: '10.3.1'
+            },
+          ],
+          endText: '.',
+          answer: '',
+          order: '10.3'
+        },
+        {
+          beginText: 'Are you thinking tankini or bikini style?',
+          questionKey: '',
+          input:  <div>
+                    <p>Are you thinking tankini or bikini style?</p>
+                    <Select
+                      size={'large'}
+                      onChange={(e) => this.answerQuestion(e)}
+                      style={{ width: 300 }}
+                      placeholder={'Select An Answer'}
+                    >
+                      <Option value='Tankini'>Tankini</Option>
+                      <Option value="Bikini bottom with a high waist">Bikini bottom with a high waist</Option>
+                    </Select>
+                  </div>,
+          endText: '.',
+          answer: '',
           order: '10.3.1'
         },
         {
@@ -1282,7 +1327,7 @@ export default class extends Component {
           beginText: 'Thanks for your participation',
           questionKey: 'final',
           input:  <div>
-                    <p>Okay You Are Almost Done! I will reach out to you I have any questions but everything looks really good! I am so excited for you to receive your swimsuits! </p>
+                    <p>Okay You Are Almost Done! I will reach out to you if I have any questions but everything looks really good! I am so excited for you to receive your swimsuits! </p>
                     <br/><br/>
                     <Row>
                       <Col span={24}>
