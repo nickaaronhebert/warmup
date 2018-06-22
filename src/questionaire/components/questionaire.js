@@ -90,7 +90,7 @@ export default class extends Component {
           autoStep: true,
           delay: 3000,
           callback: this.navigateScene.bind(this),
-          order: '6.0'
+          order: '6'
         },
         {
           beginText: 'HOW DO YOU FEEL ABOUT A FASHION CONSULTANT SELECTING A SWIMSUIT FOR YOU?',  
