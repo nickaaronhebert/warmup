@@ -1,7 +1,7 @@
 {
   "root":"dist/",
   "routes":{
-    "/images/*": "../public/images/",
+    "/public/*": "/../public",
     "/**":"index.html"
   }
 }
