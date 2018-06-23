@@ -1,7 +1,6 @@
 {
-  "root":"/",
-  "routes":{
-    "/public/**": "/public/",
-    "/**":"/dist/index.html"
+  "routes": {
+    "/public/images/great.jpg": "../public/images/great.jpg",
+    "/**": "index.html"
   }
 }
