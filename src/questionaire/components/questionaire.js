@@ -6,12 +6,32 @@ import QuestionaireQuestion from './question';
 const Option = Select.Option;
 const CheckboxGroup = Checkbox.Group;
 
+const CONSULTANT = '/public/images/consultant.jpg';
+const GREAT = '/public/images/great.jpg';
+const PRETTY_GOOD = '/public/images/prettyGood.jpg';
+const INDIFFERENT_OR_NERVOUS = '/public/images/yoga.jpg';
+const SWIM_SHOP_FEELINGS = '/public/images/loveShopping.jpg';
+const MIXED_FEELINGS_OR_DREAD = '/public/images/nervous.jpg';
+const BUILD_CONFIDENCE = '/public/images/confidence.jpg';
+const BIGGEST_CONCERN = '/public/images/concern.jpg';
+const CHEST = '/public/images/chest.jpg';
+const BUTT = '/public/images/butt.jpg';
+const MID_SECTION = '/public/images/midSection.png';
+const THIGHS = '/public/images/thighs.jpg';
+const HAVE_RECENTLY = '/public/images/haveRecently.jpg';
+const MARRIED = '/public/images/married.jpg';
+const BABY = '/public/images/baby.jpg';
+const WEIGHT = '/public/images/weight.jpg';
+const STYLES_COLORS = '/public/images/stylesColors.jpg';
+const DEFAULT = 'https://scontent-sea1-1.xx.fbcdn.net/v/t31.0-8/13920488_891980817573663_409022022472900538_o.jpg?_nc_cat=0&oh=3c8d78c0ff00a2fa0aad79c459282b78&oe=5BB18DB7';
+
 export default class extends Component {
   constructor(props, context) {
     super(props);
 
     this.state = {
       currentQuestionKey: '1',
+      currentImage: DEFAULT,
       previousQuestionKey: '',
       progress: 0.0,
       questions: [
@@ -1391,6 +1411,7 @@ export default class extends Component {
   }
 
   navigateScene() {
+    this.getCurrentImage();
     const currentQuestion = this.state.questions.find(x => x.order == this.state.currentQuestionKey);
     if (currentQuestion.triggers && currentQuestion.triggers.find(x => x.value == currentQuestion.answer)) {
       const trigger = currentQuestion.triggers.find(x => x.value == currentQuestion.answer);
@@ -1468,28 +1489,73 @@ export default class extends Component {
     question.answer = value;
     const questions = this.state.questions;
     questions[questionIndex] = question;
+    this.getCurrentImage();
     this.setState({
       questions
     })
   }
 
   getCurrentImage() {
-    const progress  = this.state.progress * 100;
-    if (progress >= 0 && progress < 20 ) {
-      return "https://scontent-sea1-1.xx.fbcdn.net/v/t31.0-8/13920488_891980817573663_409022022472900538_o.jpg?_nc_cat=0&oh=3c8d78c0ff00a2fa0aad79c459282b78&oe=5BB18DB7"
+    var nextImage;
+    const currentQuestion = this.state.questions.find(x => x.order == this.state.currentQuestionKey);
+    debugger;
+    if (currentQuestion.order == "7" && !currentQuestion.answer) {
+      nextImage = CONSULTANT;
+    } 
+    else if (currentQuestion.order == "7" && (currentQuestion.answer == "GREAT!")  ) {
+      nextImage = GREAT;
     }
-    if (progress >= 20 && progress < 40 ) {
-      return 'https://scontent-sea1-1.xx.fbcdn.net/v/t31.0-8/18620838_1161660327272376_9085363767817303550_o.jpg?_nc_cat=0&oh=c9a7cc7d44d0ec29e9ce366f26743756&oe=5BA43740'
+    else if (currentQuestion.order == "7" && (currentQuestion.answer == "Pretty Good!")  ) {
+      nextImage = PRETTY_GOOD ;
     }
-    if (progress >= 40 && progress < 60 ) {
-      return 'https://scontent-sea1-1.xx.fbcdn.net/v/t31.0-8/11144940_829297497175329_5926370979536051212_o.jpg?_nc_cat=0&oh=63b95ab31f720ad9bb6c87e9a4c63cd2&oe=5BA9F374'
+    else if (currentQuestion.order == "7" && (currentQuestion.answer == "Indifferent" || currentQuestion.answer == "NERVOUS!" )  ) {
+      nextImage = INDIFFERENT_OR_NERVOUS ;
     }
-    if (progress >= 60 && progress < 80 ) {
-      return 'https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/13166018_848453818593030_5637020492663152058_n.png?_nc_cat=0&oh=68fbf3a56445f6bb7d1977b8b731dd10&oe=5BAF4E12'
+    else if (currentQuestion.order == "8" && (currentQuestion.answer == "" || currentQuestion.answer == "I LOVE IT!" )  ) {
+      nextImage = SWIM_SHOP_FEELINGS ;
     }
-    if (progress >= 80) {
-      return 'https://scontent-sea1-1.xx.fbcdn.net/v/t31.0-8/13920488_891980817573663_409022022472900538_o.jpg?_nc_cat=0&oh=3c8d78c0ff00a2fa0aad79c459282b78&oe=5BB18DB7'
+    else if (currentQuestion.order == "8" && (currentQuestion.answer = "I HAVE MIXED FEELINGS" || currentQuestion.answer == "I DREAD IT" )  ) {
+      nextImage = MIXED_FEELINGS_OR_DREAD ;
     }
+    else if (currentQuestion.order == "8.2.2" || currentQuestion.answer == "8.2.2.2" ) {
+      nextImage = BUILD_CONFIDENCE ;
+    }
+    else if (currentQuestion.order == "9" && currentQuestion.answer == "" ) {
+      nextImage = HAVE_RECENTLY ;
+    }
+    else if (currentQuestion.order == "9" && currentQuestion.answer == "HAD A BABY" ) {
+      nextImage = BABY ;
+    }
+    else if (currentQuestion.order == "9" && currentQuestion.answer == "GOTTEN ENGAGED/MARRIED" ) {
+      nextImage = MARRIED ;
+    }
+    else if (currentQuestion.order == "9" && (currentQuestion.answer == "LOST WEIGHT" || currentQuestion.answer == "GAINED WEIGHT" )) {
+      nextImage = WEIGHT ;
+    }
+    else if (currentQuestion.order == "10" && currentQuestion.answer == "" ) {
+      nextImage = BIGGEST_CONCERN ;
+    }
+    else if (currentQuestion.order == "10" && currentQuestion.answer == "MY CHEST" ) {
+      nextImage = CHEST ;
+    }
+    else if (currentQuestion.order == "10" && currentQuestion.answer == "MY BUTT" ) {
+      nextImage = BUTT ;
+    }
+    else if (currentQuestion.order == "10" && currentQuestion.answer == "MY MID SECTION" ) {
+      nextImage = MID_SECTION ;
+    }
+    else if (currentQuestion.order == "10" && currentQuestion.answer == "MY THIGHS" ) {
+      nextImage = THIGHS ;
+    }
+    else if (currentQuestion.order == "11" || currentQuestion.order == "12" || currentQuestion.order == "13" ) {
+      nextImage = STYLES_COLORS ;
+    }
+    if (nextImage) {
+      this.setState({
+        currentImage: nextImage
+      })  
+    }
+    
   }
 
   getCurrentImageStyle() {
@@ -1517,8 +1583,8 @@ export default class extends Component {
     return (
       <QuestionaireStyleWrapper>
         <Row style={{ height: '100%'}}>
-          <Col span={14} style={{ backgroundImage: this.getCurrentImage(), height: '100%'}}>
-            <img src={this.getCurrentImage()} style={{height: '100%'}}/>
+          <Col span={14} style={{  height: '100%'}}>
+            <img src={this.state.currentImage} style={{height: '100%'}}/>
           </Col>
           <Col span={10} style={{ height: '100%', backgroundColor: 'white'}}>
             <div>
@@ -1531,7 +1597,7 @@ export default class extends Component {
                     <Col span={12}>
                       <Select
                         size={'small'}
-                        onChange={(e) => this.setState({currentQuestionKey: e})}
+                        onChange={(e) => this.setState({currentQuestionKey: e}, () => {this.getCurrentImage()} )}
                         style={{ width: 300 }}
                         placeholder={'Select An Answer'}
                       >
