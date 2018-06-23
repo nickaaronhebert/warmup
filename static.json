@@ -1,8 +1,23 @@
 {
   "root":"dist/",
   "routes":{
-    "/public/images/*": "../public/images/",
+    "/public/images/baby.jpg": "../public/images/baby.jpg",
+    "/public/images/butt.jpg": "../public/images/butt.jpg",
+    "/public/images/chest.jpg": "../public/images/chest.jpg",
+    "/public/images/concern.jpg": "../public/images/concern.jpg",
+    "/public/images/confidence.jpg": "../public/images/confidence.jpg",
+    "/public/images/consultant.jpg": "../public/images/consultant.jpg",
     "/public/images/great.jpg": "../public/images/great.jpg",
+    "/public/images/haveRecently.jpg": "../public/images/haveRecently.jpg",
+    "/public/images/loveShopping.jpg": "../public/images/loveShopping.jpg",
+    "/public/images/married.jpg": "../public/images/married.jpg",
+    "/public/images/midSection.png": "../public/images/midSection.png",
+    "/public/images/nervous.jpg": "../public/images/nervous.jpg",
+    "/public/images/prettyGood.jpg": "../public/images/prettyGood.jpg",
+    "/public/images/stylesColors.jpg": "../public/images/stylesColors.jpg",
+    "/public/images/thighs.jpg": "../public/images/thighs.jpg",
+    "/public/images/weight.jpg": "../public/images/weight.jpg",
+    "/public/images/yoga.jpg": "../public/images/yoga.jpg",
     "/questionaire": "index.html"
   }
 }
