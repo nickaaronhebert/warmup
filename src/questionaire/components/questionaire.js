@@ -187,6 +187,7 @@ export default class extends Component {
           questionKey: 'fashionConsultantComfort-ab',
           input:  <div style={{margin: '20px 0px'}}>
                     <p>I understand. What is your greatest pain when shopping for a new swimsuit?</p>
+                    <Input size="large" onChange={(e) => this.answerQuestion(e.target.value)} placeholder="" style={{border: '0px', borderBottom: '1px solid black', fontSize: '20px', fontWeight: '800'}} className="buttonTest"/>,
                   </div>,
           answer: '',
           order: '7.3.1'
@@ -311,7 +312,7 @@ export default class extends Component {
                     <Select
                       size={'large'}
                       onChange={(e) => this.answerQuestion(e)}
-                      style={{ width: 300 }}
+                      style={{ width: '100%' }}
                       placeholder={'Select An Answer'}
                     >
                       <Option value='I feel confident if it’s the right fit for me'>I feel confident if it’s the right fit for me</Option>
@@ -467,8 +468,9 @@ export default class extends Component {
                     <Select
                       size={'large'}
                       onChange={(e) => this.answerQuestion(e)}
-                      style={{ width: 300 }}
+                      style={{ width: '100%', whiteSpace: 'normal !important'}}
                       placeholder={'Select An Answer'}
+
                     >
                       <Option value='I feel my breasts have sagged/shrunken a little as a result of having a baby'>I feel my breasts have sagged/shrunken a little as a result of having a baby</Option>
                       <Option value="I’m experiencing a large bra size for the first time">I’m experiencing a large bra size for the first time</Option>
@@ -1430,13 +1432,7 @@ export default class extends Component {
 
       var traverseOnSameLevel = this.state.questions.findIndex(x => x.order == sameLevelAddress) > -1 && !this.currentQuestionTriggeredByPreviousQuestion();
       var traverseHigher = this.state.questions.findIndex(x => x.order == higherLevelAddress) > -1;
-      if (traverseDeeper) {
-        this.setState({
-          currentQuestionKey: deeperLevelAddress,
-          previousQuestionKey: currentQuestion.order
-        })
-      }
-      else if (traverseOnSameLevel) {
+      if (traverseOnSameLevel) {
         const progress = this.getProgress();
         this.setState({
           currentQuestionKey: sameLevelAddress,
@@ -1498,7 +1494,6 @@ export default class extends Component {
 
   getCurrentImageStyle() {
     const progress  = this.state.progress * 100;
-    debugger;
     if (progress >= 0 && progress < 20 ) {
       return {opacity: '.5'}
     }

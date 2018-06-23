@@ -30,6 +30,10 @@ const QuestionaireStyleWrapper = styled.div`
    text-align: center;  
 }
 
+li {
+  white-space: normal !important
+}
+
 ::-moz-placeholder {  /* Firefox 19+ */
    text-align: center;  
 }
