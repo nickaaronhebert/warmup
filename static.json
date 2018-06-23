@@ -1,4 +1,5 @@
 {
+  root: "dist/"
   "routes": {
     "/public/images/great.jpg": "../public/images/great.jpg",
     "/**": "index.html"
